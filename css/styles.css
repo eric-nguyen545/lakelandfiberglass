@@ -3,12 +3,20 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   line-height: 1.6;
+  background-color: #fff;
 }
 
-/* Header section */
+/* --- Header container --- */
 header {
   background-color: #000;
   color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+/* --- Top Row --- */
+.header-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,62 +24,144 @@ header {
   flex-wrap: wrap;
 }
 
-.header-left {
-  flex: 1 1 250px;
+/* --- Logo and Company Name --- */
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
 }
 
-.header-left h1 {
-  color: #2c5aa0;
-  margin: 0;
-  font-size: 2rem;
+.site-logo {
+  height: 70px;
+  max-width: 220px;
+  margin-right: 0.75rem;
 }
 
-.header-left p {
-  margin: 0;
-  font-size: 1rem;
-  color: #ccc;
+.company-name {
+  font-size: 3rem;
+  font-style: italic;
+  font-weight: 700;
+  display: flex;
+  gap: 0.25rem;
 }
 
+.company-name .word1 {
+  color: #5ea3e5; /* Light blue */
+}
+
+.company-name .word2 {
+  color: #2c5aa0; /* Medium blue */
+}
+
+.company-name .word3 {
+  color: #1a3c78; /* Darker blue */
+}
+
+/* --- Phone Number & Tagline --- */
 .header-right {
-  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   text-align: right;
 }
 
-.header-right .phone {
+.phone-number {
+  font-size: 1.3rem;
   color: #2c5aa0;
   font-weight: bold;
-  margin: 0;
 }
 
-.header-right .location {
-  margin: 0;
+.tagline {
   font-size: 0.9rem;
   color: #ccc;
+  margin-top: 0.25rem;
 }
 
-/* Navigation bar */
-nav {
-  background-color: #fff;
-  border-top: 3px solid #2c5aa0;
-  border-bottom: 3px solid #2c5aa0;
-  text-align: center;
+/* --- Hamburger Button --- */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* --- Nav Links Row --- */
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  border-top: 2px solid #2c5aa0;
+  border-bottom: 2px solid #2c5aa0;
   padding: 0.5rem 0;
+  background-color: #fff;
 }
 
-nav a {
+.nav-links a {
   text-decoration: none;
   color: #000;
-  margin: 0 1rem;
   font-weight: bold;
-  display: inline-block;
+  padding: 0.5rem;
 }
 
-nav a.active {
+.nav-links a.active {
   border-bottom: 2px solid #2c5aa0;
   color: #2c5aa0;
 }
 
-/* Hero section */
+/* --- Responsive Mobile --- */
+@media (max-width: 768px) {
+  .header-top {
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  .logo-link {
+    display: none;
+  }
+
+  .header-right {
+    display: none;
+  }
+
+  .hamburger {
+    order: -1; 
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    border-top: 1px solid #2c5aa0;
+    padding: 1rem 0;
+    z-index: 10;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links a {
+    color: #fff;
+    margin: 0.5rem 0;
+    border-bottom: none;
+  }
+
+  .nav-links a.active {
+    color: #2c5aa0;
+    border-bottom: none;
+  }
+}
+
+
+/* --- Hero Section --- */
 .hero {
   background-color: #000;
   color: #fff;
@@ -80,8 +170,8 @@ nav a.active {
 }
 
 .hero .logo {
-  width: 100%;
   max-width: 200px;
+  width: 100%;
   height: auto;
   margin-bottom: 1rem;
 }
@@ -98,7 +188,7 @@ nav a.active {
   padding: 0 1rem;
 }
 
-/* About section */
+/* --- About Section --- */
 .about {
   background-color: #fff;
   padding: 2rem 1rem;
@@ -118,7 +208,7 @@ nav a.active {
   padding: 0 1rem;
 }
 
-/* Gallery row */
+/* --- Gallery Section --- */
 .gallery-row {
   display: flex;
   justify-content: center;
@@ -133,7 +223,7 @@ nav a.active {
   border: 2px solid #ccc;
 }
 
-/* Footer */
+/* --- Footer --- */
 footer {
   background-color: #000;
   color: #fff;
@@ -141,106 +231,27 @@ footer {
   padding: 1rem;
 }
 
-/* Responsive adjustments */
+/* --- Responsive Mobile Adjustments --- */
 @media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  /* Top row changes: hide logo+name+phone, show hamburger */
+  .header-top {
+    justify-content: space-between;
     padding: 1rem;
+  }
+
+  .logo-link {
+    display: none;
   }
 
   .header-right {
-    text-align: center;
-    margin-top: 0.5rem;
+    display: none;
   }
 
-  nav {
-    padding: 0.5rem;
-  }
-
-  nav a {
-    display: block;
-    margin: 0.5rem 0;
-  }
-
-  .hero {
-    padding: 1rem;
-  }
-
-  .hero h2 {
-    font-size: 1.5rem;
-  }
-
-  .about h2 {
-    font-size: 1.5rem;
-  }
-
-  .gallery-row {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .gallery-row img {
-    max-width: 90%;
-  }
-}
-
-/* Logo link and header */
-header {
-  background-color: #000;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  position: relative;
-}
-
-.logo-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.site-logo {
-  height: 60px;
-  max-width: 200px;
-  width: auto;
-}
-
-.hamburger {
-  display: none;
-  font-size: 2rem;
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-}
-
-.nav-links {
-  display: flex;
-  gap: 1rem;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  padding: 0.5rem;
-}
-
-.nav-links a.active {
-  border-bottom: 2px solid #2c5aa0;
-  color: #2c5aa0;
-}
-
-/* Responsive Hamburger Menu */
-@media (max-width: 768px) {
   .hamburger {
     display: block;
   }
 
+  /* Nav links: mobile dropdown */
   .nav-links {
     display: none;
     flex-direction: column;
@@ -251,6 +262,7 @@ header {
     background-color: #000;
     border-top: 1px solid #2c5aa0;
     padding: 1rem 0;
+    z-index: 10;
   }
 
   .nav-links.show {
@@ -267,4 +279,149 @@ header {
     color: #2c5aa0;
     border-bottom: none;
   }
+
+  /* Hero adjustments */
+  .hero {
+    padding: 1rem;
+  }
+
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+
+  .about h2 {
+    font-size: 1.5rem;
+  }
+
+  /* Gallery responsiveness */
+  .gallery-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery-row img {
+    max-width: 90%;
+  }
 }
+
+/* Services */
+.services {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.services h2 {
+  color: #2c5aa0;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.services .subtitle {
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+.services p {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.service-card {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  max-width: 300px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.service-card img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  color: #2c5aa0;
+  margin-bottom: 0.5rem;
+}
+
+.service-card p {
+  color: #333;
+  font-size: 0.95rem;
+}
+
+/* Gallary */
+
+.gallery {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.gallery h2 {
+  color: #2c5aa0;
+  margin-bottom: 1rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.project {
+  cursor: pointer;
+  text-align: center;
+}
+
+.project img {
+  width: 100%;
+  max-width: 250px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Lightbox modal */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.9);
+  text-align: center;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 80vh;
+  margin-top: 5vh;
+}
+
+.lightbox-counter {
+  color: #fff;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+
+.lightbox .close, .lightbox .prev, .lightbox .next {
+  position: absolute;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  top: 20px;
+}
+
+.lightbox .close { right: 20px; }
+.lightbox .prev { left: 20px; top: 50%; transform: translateY(-50%); }
+.lightbox .next { right: 20px; top: 50%; transform: translateY(-50%); }
+
+
+

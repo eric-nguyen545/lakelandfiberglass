@@ -8,30 +8,59 @@
 
 <body>
   <header>
-    <a href="index.html" class="logo-link">
-      <img src="images/logo.svg" alt="Lake Land Fiberglass Logo" class="site-logo">
-    </a>
-    <button class="hamburger" aria-label="Toggle Menu">
-      &#9776;
-    </button>
+    <div class="header-top">
+      <div class="header-left">
+        <a href="index.html" class="logo-link">
+          <img src="images/logo.svg" alt="Lake Land Fiberglass Logo" class="site-logo">
+          <span class="company-name">
+            <span class="word1">Lake</span>
+            <span class="word2">Land</span>
+            <span class="word3">Fiberglass</span>
+          </span>
+        </a>
+      </div>
+      <div class="header-right">
+        <span class="phone-number">612-743-6765</span>
+        <div class="tagline">Servicing the Lake Minnetonka Area and Beyond Since 1995</div>
+      </div>
+      <button class="hamburger" aria-label="Toggle Menu">
+        &#9776;
+      </button>
+    </div>
+
     <nav class="nav-links">
       <a href="index.html">HOME</a>
       <a href="services.html">BOAT REPAIR SERVICES</a>
       <a href="detailing.html">DETAIL SERVICES</a>
-      <a class="active" href="gallery.html">GALLERY</a>
+      <a href="gallery.html">GALLERY</a>
       <a href="contact.html">CONTACT US</a>
     </nav>
   </header>
 
-  <section class="gallery-section">
-    <h2>Gallery</h2>
+    <section class="gallery">
+    <h2>Our Projects</h2>
     <div class="gallery-grid">
-      <img src="images/IMG_1250.jpg" alt="Project 1"/>
-      <img src="images/IMG_1246.jpg" alt="Project 2"/>
-      <img src="images/IMG_1274.jpg" alt="Project 3"/>
-      <!-- Add more -->
+        <div class="project" data-project="project1">
+        <img src="images/IMG_1250.jpg" alt="Project 1">
+        <h3>Restoration Project 1</h3>
+        </div>
+        <div class="project" data-project="project2">
+        <img src="images/chap 1.jpg" alt="Project 2">
+        <h3>Repair Project 2</h3>
+        </div>
+        <!-- Add more projects -->
     </div>
-  </section>
+    </section>
+
+    <!-- Modal -->
+    <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+    <p class="lightbox-counter"></p>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+    </div>
+
 
   <footer>
     <p>&copy; 2025 Lake Land Fiberglass</p>
@@ -45,5 +74,75 @@
       navLinks.classList.toggle('show');
     });
   </script>
+    <script>
+    const projects = {
+        project1: [
+        'images/IMG_1250.jpg',
+        'images/IMG_1246.jpg',
+        'images/IMG_1274.jpg'
+        ],
+        project2: [
+        'images/chap 1.jpg',
+        'images/IMG_1176.jpg',
+        'images/IMG_1207.jpg'
+        ],
+        // Add more projects
+    };
+
+    let currentProject = '';
+    let currentIndex = 0;
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.querySelector('.lightbox-img');
+    const closeBtn = document.querySelector('.lightbox .close');
+    const nextBtn = document.querySelector('.lightbox .next');
+    const prevBtn = document.querySelector('.lightbox .prev');
+    const counter = document.querySelector('.lightbox-counter');
+
+    document.querySelectorAll('.project').forEach(proj => {
+        proj.addEventListener('click', () => {
+        currentProject = proj.getAttribute('data-project');
+        currentIndex = 0;
+        showImage();
+        lightbox.style.display = 'block';
+        });
+    });
+
+
+    function showImage() {
+        const images = projects[currentProject];
+        lightboxImg.src = images[currentIndex];
+        counter.textContent = `Image ${currentIndex + 1} of ${images.length}`;
+
+        // Disable buttons at ends
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === images.length - 1;
+
+        prevBtn.style.opacity = prevBtn.disabled ? 0.3 : 1;
+        nextBtn.style.opacity = nextBtn.disabled ? 0.3 : 1;
+        prevBtn.style.cursor = prevBtn.disabled ? 'default' : 'pointer';
+        nextBtn.style.cursor = nextBtn.disabled ? 'default' : 'pointer';
+    }
+
+    closeBtn.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+    });
+
+    nextBtn.addEventListener('click', () => {
+        const images = projects[currentProject];
+        if (currentIndex < images.length - 1) {
+        currentIndex++;
+        showImage();
+        }
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+        currentIndex--;
+        showImage();
+        }
+    });
+    </script>
+
 </body>
 </html>
