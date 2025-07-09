@@ -185,3 +185,86 @@ footer {
     max-width: 90%;
   }
 }
+
+/* Logo link and header */
+header {
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  position: relative;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.site-logo {
+  height: 60px;
+  max-width: 200px;
+  width: auto;
+}
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.5rem;
+}
+
+.nav-links a.active {
+  border-bottom: 2px solid #2c5aa0;
+  color: #2c5aa0;
+}
+
+/* Responsive Hamburger Menu */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    border-top: 1px solid #2c5aa0;
+    padding: 1rem 0;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links a {
+    color: #fff;
+    margin: 0.5rem 0;
+    border-bottom: none;
+  }
+
+  .nav-links a.active {
+    color: #2c5aa0;
+    border-bottom: none;
+  }
+}

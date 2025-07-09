@@ -5,24 +5,23 @@
   <title>Lake Land Fiberglass ‑ Gallery</title>
   <link rel="stylesheet" href="css/styles.css"/>
 </head>
+
 <body>
   <header>
-    <div class="header-left">
-      <h1>LAKE LAND FIBERGLASS</h1>
-      <p>Industry Leading Fiberglass Repair</p>
-    </div>
-    <div class="header-right">
-      <p class="phone">612‑743‑6765</p>
-      <p class="location">Servicing the Lake Minnetonka Area</p>
-    </div>
+    <a href="index.html" class="logo-link">
+      <img src="images/logo.svg" alt="Lake Land Fiberglass Logo" class="site-logo">
+    </a>
+    <button class="hamburger" aria-label="Toggle Menu">
+      &#9776;
+    </button>
+    <nav class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="services.html">BOAT REPAIR SERVICES</a>
+      <a href="detailing.html">DETAIL SERVICES</a>
+      <a class="active" href="gallery.html">GALLERY</a>
+      <a href="contact.html">CONTACT US</a>
+    </nav>
   </header>
-  <nav>
-    <a href="index.html">HOME</a>
-    <a href="services.html">BOAT REPAIR SERVICES</a>
-    <a href="detailing.html">DETAIL SERVICES</a>
-    <a class="active" href="gallery.html">GALLERY</a>
-    <a href="contact.html">CONTACT US</a>
-  </nav>
 
   <section class="gallery-section">
     <h2>Gallery</h2>
@@ -37,5 +36,14 @@
   <footer>
     <p>&copy; 2025 Lake Land Fiberglass</p>
   </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script>
 </body>
 </html>

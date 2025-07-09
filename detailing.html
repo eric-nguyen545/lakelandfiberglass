@@ -1,36 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lake Land Fiberglass ‑ Detail Services</title>
-  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
+
 <body>
   <header>
-    <div class="header-left">
-      <h1>LAKE LAND FIBERGLASS</h1>
-      <p>Industry Leading Fiberglass Repair</p>
-    </div>
-    <div class="header-right">
-      <p class="phone">612‑743‑6765</p>
-      <p class="location">Servicing the Lake Minnetonka Area</p>
-    </div>
+    <a href="index.html" class="logo-link">
+      <img src="images/logo.svg" alt="Lake Land Fiberglass Logo" class="site-logo">
+    </a>
+    <button class="hamburger" aria-label="Toggle Menu">
+      &#9776;
+    </button>
+    <nav class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="services.html">BOAT REPAIR SERVICES</a>
+      <a class="active" href="detailing.html">DETAIL SERVICES</a>
+      <a href="gallery.html">GALLERY</a>
+      <a href="contact.html">CONTACT US</a>
+    </nav>
   </header>
-  <nav>
-    <a href="index.html">HOME</a>
-    <a href="services.html">BOAT REPAIR SERVICES</a>
-    <a class="active" href="detailing.html">DETAIL SERVICES</a>
-    <a href="gallery.html">GALLERY</a>
-    <a href="contact.html">CONTACT US</a>
-  </nav>
 
   <section class="content">
     <h2>Detail Services</h2>
-    <p>We provide interior and exterior detailing services for fiberglass boats … polishing, waxing, deep cleaning, upholstery treatment, and more.</p>
+    <p>We offer full-service boat detailing for interior and exterior needs:</p>
+    <ul>
+      <li>Exterior wash, polish, and wax</li>
+      <li>Interior deep cleaning</li>
+      <li>Upholstery treatment</li>
+      <li>Metal polishing</li>
+      <li>Custom detailing packages</li>
+    </ul>
+    <p>Protect your investment and keep your boat looking showroom-new with our professional detailing services.</p>
   </section>
 
   <footer>
     <p>&copy; 2025 Lake Land Fiberglass</p>
   </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script>
 </body>
 </html>

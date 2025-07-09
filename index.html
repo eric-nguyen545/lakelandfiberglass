@@ -6,28 +6,25 @@
   <title>Lake Land Fiberglass ‑ Home</title>
   <link rel="stylesheet" href="css/styles.css"/>
 </head>
+
 <body>
   <header>
-    <div class="header-left">
-      <h1>LAKE LAND FIBERGLASS</h1>
-      <p>Industry Leading Fiberglass Repair</p>
-    </div>
-    <div class="header-right">
-      <p class="phone">612‑743‑6765</p>
-      <p class="location">Servicing the Lake Minnetonka Area</p>
-    </div>
+    <a href="index.html" class="logo-link">
+      <img src="images/logo.svg" alt="Lake Land Fiberglass Logo" class="site-logo">
+    </a>
+    <button class="hamburger" aria-label="Toggle Menu">
+      &#9776;
+    </button>
+    <nav class="nav-links">
+      <a class="active" href="index.html">HOME</a>
+      <a href="services.html">BOAT REPAIR SERVICES</a>
+      <a href="detailing.html">DETAIL SERVICES</a>
+      <a href="gallery.html">GALLERY</a>
+      <a href="contact.html">CONTACT US</a>
+    </nav>
   </header>
 
-  <nav>
-    <a class="active" href="index.html">HOME</a>
-    <a href="services.html">BOAT REPAIR SERVICES</a>
-    <a href="detailing.html">DETAIL SERVICES</a>
-    <a href="gallery.html">GALLERY</a>
-    <a href="contact.html">CONTACT US</a>
-  </nav>
-
   <section class="hero">
-    <img src="images/Lake Land Fiberglass Logo.svg" alt="LLF Logo"/>
     <h2>Restore Your Boat to its Original Condition</h2>
     <p>Lake Land Fiberglass provides the broadest range of boat repair services to the Twin Cities, greater Minnesota, and western Wisconsin. … With over 30 years of experience … satisfied with our services.</p>
   </section>
@@ -45,5 +42,15 @@
   <footer>
     <p>&copy; 2025 Lake Land Fiberglass</p>
   </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script>
+
 </body>
 </html>
