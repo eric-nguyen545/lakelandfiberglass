@@ -1,21 +1,29 @@
+/* Base styling */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   line-height: 1.6;
 }
 
+/* Header section */
 header {
   background-color: #000;
   color: #fff;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 1rem 2rem;
   flex-wrap: wrap;
+}
+
+.header-left {
+  flex: 1 1 250px;
 }
 
 .header-left h1 {
   color: #2c5aa0;
   margin: 0;
+  font-size: 2rem;
 }
 
 .header-left p {
@@ -25,6 +33,7 @@ header {
 }
 
 .header-right {
+  flex: 1 1 200px;
   text-align: right;
 }
 
@@ -40,6 +49,7 @@ header {
   color: #ccc;
 }
 
+/* Navigation bar */
 nav {
   background-color: #fff;
   border-top: 3px solid #2c5aa0;
@@ -53,6 +63,7 @@ nav a {
   color: #000;
   margin: 0 1rem;
   font-weight: bold;
+  display: inline-block;
 }
 
 nav a.active {
@@ -60,6 +71,7 @@ nav a.active {
   color: #2c5aa0;
 }
 
+/* Hero section */
 .hero {
   background-color: #000;
   color: #fff;
@@ -68,14 +80,25 @@ nav a.active {
 }
 
 .hero .logo {
+  width: 100%;
   max-width: 200px;
+  height: auto;
   margin-bottom: 1rem;
 }
 
 .hero h2 {
   color: #2c5aa0;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
+.hero p {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* About section */
 .about {
   background-color: #fff;
   padding: 2rem 1rem;
@@ -84,14 +107,18 @@ nav a.active {
 
 .about h2 {
   color: #2c5aa0;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .about p {
   max-width: 800px;
   margin: 0 auto 2rem;
   color: #2c5aa0;
+  padding: 0 1rem;
 }
 
+/* Gallery row */
 .gallery-row {
   display: flex;
   justify-content: center;
@@ -100,15 +127,61 @@ nav a.active {
 }
 
 .gallery-row img {
-  max-width: 300px;
   width: 100%;
+  max-width: 300px;
   height: auto;
   border: 2px solid #ccc;
 }
 
+/* Footer */
 footer {
   background-color: #000;
   color: #fff;
   text-align: center;
   padding: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .header-right {
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  nav {
+    padding: 0.5rem;
+  }
+
+  nav a {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  .hero {
+    padding: 1rem;
+  }
+
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+
+  .about h2 {
+    font-size: 1.5rem;
+  }
+
+  .gallery-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery-row img {
+    max-width: 90%;
+  }
 }
