@@ -423,5 +423,117 @@ footer {
 .lightbox .prev { left: 20px; top: 50%; transform: translateY(-50%); }
 .lightbox .next { right: 20px; top: 50%; transform: translateY(-50%); }
 
+/* ----- MOBILE HEADER: hidden on desktop ----- */
+.header-mobile {
+  display: none;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  /* Hide the desktop header and nav */
+  .header-top,
+  .nav-links {
+    display: none;
+  }
+
+  /* Show the mobile header instead */
+  .header-mobile {
+    display: flex;
+    flex-direction: column;
+    background-color: #000;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+
+  .header-mobile-top {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.5rem 1rem;
+    background-color: #000;
+  }
+
+  .header-mobile .hamburger {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .header-mobile .mobile-brand {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    margin-left: 1rem; /* Space between hamburger and brand */
+  }
+
+  .header-mobile .site-logo {
+    height: 50px;
+    width: auto;
+  }
+
+  .header-mobile .brand-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .header-mobile .company-name {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.1rem;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .header-mobile .company-name span {
+    margin-left: 0.25rem;
+  }
+
+  .header-mobile .mobile-cta {
+    font-size: 0.85rem;
+    color: #ccc;
+  }
+
+  .header-mobile .mobile-cta strong {
+    color: #fff;
+  }
+
+  /* Mobile nav links (dropdown) */
+  .header-mobile .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #000;
+    border-top: 1px solid #2c5aa0;
+    padding: 1rem 0;
+  }
+
+  .header-mobile .nav-links.show {
+    display: flex;
+  }
+
+  .header-mobile .nav-links a {
+    color: #fff;
+    margin: 0.5rem 0;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .header-mobile .nav-links a.active {
+    color: #2c5aa0;
+  }
+  
+}
+
+.mobile-cta a {
+  text-decoration: none;
+  color: #fff
+}
 
 
